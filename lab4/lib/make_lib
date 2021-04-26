@@ -1,0 +1,11 @@
+CC=riscv64-unknown-elf-gcc
+AR=riscv64-unknown-elf-ar
+CFLAGS=-march=rv64iac -mabi=lp64
+
+all: lib
+
+lib: search.o
+		$(AR) -rsc libSearch.a search.o
+		del -f *.o
+search.o: search.c
+		$(CC) $(CFLAGS) -c search.c -o search.o

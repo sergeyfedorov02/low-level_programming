@@ -1,0 +1,8 @@
+TARGET=main
+CC=riscv64-unknown-elf-gcc
+CFLAGS=-march=rv64iac -mabi=lp64 
+
+all: 
+		make -f make_lib
+		$(CC) $(CFLAGS) main.c libSearch.a -o $(TARGET)
+		del -f *.0 *.a
